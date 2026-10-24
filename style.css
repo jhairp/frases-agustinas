@@ -1,0 +1,449 @@
+/* ==========================================================================
+   Frases Agustinas — Diseño Editorial Monumental y Minimalista
+   Paleta: Blanco Dominante con Acentos Rojo Carmesí
+   ========================================================================== */
+
+:root {
+  /* Paleta: Blanco Luminoso Dominante & Acentos Rojos */
+  --bg-abyss: #f9f8f6;
+  --bg-surface: #ffffff;
+  --bg-surface-elevated: #ffffff;
+  --bg-card: #ffffff;
+  
+  --border-subtle: rgba(217, 37, 62, 0.18);
+  --border-glow: rgba(229, 36, 63, 0.45);
+  
+  --text-primary: #1c1114;
+  --text-secondary: #5e4349;
+  --text-muted: #8c7177;
+  
+  --accent-red: #d9253e;
+  --accent-red-bright: #eb1e3a;
+  --accent-red-glow: rgba(217, 37, 62, 0.14);
+  --accent-wine: #961226;
+
+  --card-shadow: 0 25px 65px -15px rgba(180, 25, 45, 0.12), 0 8px 25px rgba(0, 0, 0, 0.04);
+
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-display: 'Cinzel', 'Trajan Pro', serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  
+  --radius-md: 14px;
+  --radius-lg: 24px;
+  --transition-smooth: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Reseteo y Base */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  min-height: 100vh;
+  background-color: var(--bg-abyss);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Fondo LUMINOSO con suave aura carmesí */
+.background-aura {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: 
+    radial-gradient(circle at 50% 20%, rgba(235, 30, 58, 0.07) 0%, transparent 60%),
+    radial-gradient(circle at 85% 85%, rgba(245, 215, 220, 0.5) 0%, transparent 55%),
+    radial-gradient(circle at 15% 85%, rgba(255, 235, 238, 0.6) 0%, transparent 50%);
+  filter: blur(50px);
+  opacity: 0.9;
+}
+
+/* Envoltorio principal que centra el contenido en pantalla */
+.app-wrapper {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1020px;
+  margin: 0 auto;
+  padding: 1.75rem 1.5rem 2rem;
+}
+
+/* Encabezado minimalista */
+.top-nav-minimal {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 1.5rem;
+}
+
+.brand-minimal {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--text-muted);
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.brand-symbol {
+  width: 24px;
+  height: 24px;
+  color: var(--accent-red);
+  filter: drop-shadow(0 0 6px var(--accent-red-glow));
+}
+
+/* Escenario Central */
+.main-stage {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2.5rem 0 2rem;
+}
+
+/* Envoltorio del Card para contener la imagen de San Agustín */
+.quote-card-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 860px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Imagen de San Agustín abajo a la izquierda a la misma altura de la base del card */
+.san-agustin-badge-container {
+  position: absolute;
+  bottom: -2px;
+  left: -50px;
+  z-index: 15;
+  pointer-events: none;
+  display: flex;
+  align-items: flex-end;
+}
+
+.san-agustin-card-img {
+  width: 215px;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 15px 30px rgba(120, 20, 35, 0.25)) drop-shadow(0 0 20px rgba(217, 37, 62, 0.2));
+  animation: flameGlow 4s ease-in-out infinite alternate;
+}
+
+@keyframes flameGlow {
+  0% {
+    filter: drop-shadow(0 15px 30px rgba(120, 20, 35, 0.22)) drop-shadow(0 0 16px rgba(217, 37, 62, 0.18));
+  }
+  100% {
+    filter: drop-shadow(0 18px 34px rgba(120, 20, 35, 0.28)) drop-shadow(0 0 26px rgba(235, 30, 58, 0.35));
+  }
+}
+
+/* Tarjeta Monumental de la Cita (Blanco Puro con Borde Rojo Fino) */
+.quote-monument {
+  position: relative;
+  width: 100%;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 3.5rem 3.5rem 2.5rem;
+  box-shadow: var(--card-shadow);
+  text-align: center;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+  z-index: 1;
+}
+
+.quote-monument::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: calc(var(--radius-lg) + 1px);
+  padding: 1px;
+  background: linear-gradient(135deg, var(--border-glow), transparent 60%, var(--border-subtle));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Comilla Ornamental Clásica en Rojo Vivo */
+.quote-ornament {
+  font-family: var(--font-serif);
+  font-size: 5.2rem;
+  line-height: 0.8;
+  color: var(--accent-red);
+  opacity: 0.65;
+  margin-bottom: 0.5rem;
+  user-select: none;
+}
+
+/* Contenedor y TEXTO GRANDE DE LA FRASE */
+.quote-text-container {
+  min-height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0 1rem;
+}
+
+.quote-text {
+  font-family: var(--font-serif);
+  font-size: 2.85rem;
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.32;
+  color: var(--text-primary);
+  max-width: 780px;
+  margin: 0 auto;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.quote-text.fading {
+  opacity: 0;
+  transform: translateY(14px) scale(0.98);
+}
+
+/* Divisor Ornamental */
+.quote-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  margin: 1.5rem 0 1.25rem;
+}
+
+.quote-divider .line {
+  height: 1px;
+  width: 70px;
+  background: linear-gradient(90deg, transparent, var(--border-subtle), transparent);
+}
+
+.quote-divider .flair {
+  color: var(--accent-red);
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+/* Atribución / Procedencia de la Obra */
+.quote-attribution {
+  margin-bottom: 1.25rem;
+}
+
+.quote-source {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: var(--accent-red);
+  letter-spacing: 0.04em;
+  font-style: italic;
+  font-weight: 500;
+  opacity: 0.95;
+}
+
+/* Botón sutil de copiar al pie de la tarjeta */
+.card-footer-action {
+  display: flex;
+  justify-content: center;
+}
+
+.copy-subtle-btn {
+  background: transparent;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  padding: 0.35rem 0.95rem;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.copy-subtle-btn:hover {
+  background: rgba(217, 37, 62, 0.06);
+  border-color: var(--accent-red);
+  color: var(--accent-red);
+}
+
+/* ==========================================================================
+   BOTÓN PRINCIPAL DE REFRESCAR / OTRA FRASE
+   Rojo Escarlata Radiante con Tipografía Blanca
+   ========================================================================== */
+.refresh-control-zone {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.btn-refresh {
+  position: relative;
+  background: linear-gradient(135deg, #eb1e3a 0%, #c91834 60%, #9e1026 100%);
+  color: #ffffff;
+  border: none;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 1.15rem 2.75rem;
+  border-radius: 999px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  box-shadow: 0 12px 30px -4px rgba(217, 37, 62, 0.42), 0 0 1px 1.5px rgba(255, 255, 255, 0.45) inset;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease, filter 0.2s ease;
+  overflow: hidden;
+}
+
+.btn-refresh::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.75s ease;
+}
+
+.btn-refresh:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 16px 36px -4px rgba(217, 37, 62, 0.58), 0 0 25px rgba(235, 30, 58, 0.4);
+  filter: brightness(1.06);
+}
+
+.btn-refresh:hover::after {
+  left: 200%;
+}
+
+.btn-refresh:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+.btn-refresh .refresh-icon {
+  width: 22px;
+  height: 22px;
+  stroke: #ffffff;
+  transition: transform 0.65s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.btn-refresh.spinning .refresh-icon {
+  transform: rotate(360deg);
+}
+
+.shortcut-hint {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.kbd {
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  padding: 0.12rem 0.45rem;
+  font-family: inherit;
+  font-size: 0.7rem;
+  color: var(--accent-red);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+/* Pie de Página Minimalista */
+.site-footer-minimal {
+  padding-top: 1rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Toast de Notificaciones */
+.toast-notice {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(30px);
+  background: #ffffff;
+  color: var(--text-primary);
+  border: 1px solid var(--border-glow);
+  padding: 0.65rem 1.4rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1), 0 0 15px rgba(217, 37, 62, 0.15);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+  z-index: 100;
+}
+
+.toast-notice.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+/* ==========================================================================
+   Responsividad Móvil y Pantallas Pequeñas
+   ========================================================================== */
+@media (max-width: 768px) {
+  .app-wrapper {
+    padding: 1.25rem 1rem 1.5rem;
+  }
+  
+  .san-agustin-badge-container {
+    bottom: -2px;
+    left: -15px;
+  }
+
+  .san-agustin-card-img {
+    width: 140px;
+  }
+
+  .quote-monument {
+    padding: 2.75rem 1.5rem 1.75rem;
+  }
+  
+  .quote-ornament {
+    font-size: 3.8rem;
+  }
+
+  .quote-text {
+    font-size: 1.95rem;
+    line-height: 1.35;
+  }
+
+  .btn-refresh {
+    font-size: 1.02rem;
+    padding: 1rem 2rem;
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+  
+  .shortcut-hint {
+    display: none;
+  }
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frases de San Agustín — Sabiduría e Interioridad</title>
+  <meta name="description" content="Colección interactiva de frases y sentencias célebres de San Agustín.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23e5243f'><path d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/></svg>">
+</head>
+<body>
+  <!-- Fondo y aura lumínica ambiental -->
+  <div class="background-aura" aria-hidden="true"></div>
+
+  <div class="app-wrapper">
+    <!-- Encabezado minimalista -->
+    <header class="top-nav-minimal">
+      <div class="brand-minimal">
+        <svg class="brand-symbol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="currentColor" fill-opacity="0.15"></path>
+          <path d="M12 3v4M8 4l2 3M16 4l-2 3" stroke-width="1.8"></path>
+        </svg>
+        <span>San Agustín</span>
+      </div>
+    </header>
+
+    <!-- Escenario Principal enfocado puramente en la frase -->
+    <main class="main-stage">
+      <div class="quote-card-wrapper">
+        <!-- Imagen de San Agustín en PNG sin fondo sobre la esquina izquierda del card -->
+        <div class="san-agustin-badge-container">
+          <img src="san-agustin.png" alt="San Agustín de Hipona sosteniendo el corazón ardiente" class="san-agustin-card-img">
+        </div>
+
+        <!-- Tarjeta Monumental donde la frase es la protagonista indiscutible -->
+        <article class="quote-monument" id="quote-card" aria-live="polite">
+          
+          <!-- Comilla Ornamental Clásica -->
+          <div class="quote-ornament" aria-hidden="true">“</div>
+
+          <!-- Texto Central de la Frase en Gran Tamaño -->
+          <div class="quote-text-container">
+            <blockquote class="quote-text" id="quote-text">
+              Nos hiciste, Señor, para ti, y nuestro corazón está inquieto hasta que descanse en ti.
+            </blockquote>
+          </div>
+
+          <!-- Divisor sutil -->
+          <div class="quote-divider" aria-hidden="true">
+            <span class="line"></span>
+            <span class="flair">✦</span>
+            <span class="line"></span>
+          </div>
+
+          <!-- Únicamente la obra de procedencia -->
+          <div class="quote-attribution">
+            <span class="quote-source" id="quote-source">Confesiones, Libro I, Cap. 1</span>
+          </div>
+
+          <!-- Botón discreto para copiar la frase -->
+          <div class="card-footer-action">
+            <button id="btn-copy-quote" class="copy-subtle-btn" title="Copiar frase al portapapeles" aria-label="Copiar frase">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <span>Copiar frase</span>
+            </button>
+          </div>
+        </article>
+      </div>
+
+      <!-- BOTÓN PRINCIPAL DE REFRESCAR / OTRA FRASE -->
+      <section class="refresh-control-zone" aria-label="Control de nueva frase">
+        <button id="btn-refresh-quote" class="btn-refresh" aria-label="Cargar otra frase de San Agustín">
+          <svg class="refresh-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.19"></path>
+          </svg>
+          <span>Otra Frase</span>
+        </button>
+        <span class="shortcut-hint" aria-hidden="true">
+          o presiona <kbd class="kbd">Espacio</kbd>
+        </span>
+      </section>
+    </main>
+
+    <!-- Pie de Página sutil y limpio -->
+    <footer class="site-footer-minimal">
+      <span>Filosofía & Sabiduría Agustiniana</span>
+    </footer>
+  </div>
+
+  <!-- Toast Flotante para confirmación de copia -->
+  <div id="toast-notification" class="toast-notice" role="status" aria-live="polite">
+    <span id="toast-message">Cita copiada al portapapeles</span>
+  </div>
+
+  <!-- Scripts -->
+  <script src="quotes.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
